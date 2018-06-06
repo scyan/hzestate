@@ -1,0 +1,127 @@
+<scroll-view class="scroll-view_H" scroll-x style="width: 100%">
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <view class="section-group">
+    <view class="section">
+      <label for="price">均价</label>{{price_num}}{{price_unit}}
+    </view>
+    <view class="section">
+      <label for="price">价格</label>
+      <input  id="price" data-index="price" type="digit" confirm-type='done' bindblur="toggle"
+       bindconfirm='toggle' value="{{price}}" placeholder="请输入数字"/>元/平方米
+      
+    </view>
+    <view class="section">
+      <label for="openDate">预计开盘时间</label>
+      <picker style="flex:1;"  mode="date" value="{{date}}"  data-index="openDate" bindchange="toggle">
+      <view class="{{openDate?'picker':'picker placeholder'}}">
+         {{openDate?openDate:'请选择时间'}}
+      </view>
+    </picker>
+    </view>
+    <view class="section"> 
+      <label for="price">销售姓名</label>
+      <input data-index="sellerName"  value="{{sellerName}}" placeholder='可输入销售姓名' bindblur='toggle' bindconfirm='toggle' confirm-type='done' />
+    </view>
+    <view class="section"> 
+      <label for="price">销售电话</label>
+      <input data-index="sellerMobile"  value="{{sellerMobile}}" placeholder='可输入销售电话' bindblur='toggle' bindconfirm='toggle' confirm-type='done' />
+      <view class="icon icon-call" bindtap="makeCall"></view>
+    </view>
+  </view>
+
+  <view class="section-title">
+    <text>户型图</text>
+  </view>
+ <view class="section-group">
+  <view class="section image-list" >
+    <view wx:for="{{imageList}}" class="pic-wrap" wx:key="idx" wx:for-index="idx" wx:for-item="item" data-index="{{idx}}" data-record-id="{{item.id}}">
+      <image class="pic" src="{{item.path}}" data-index="{{idx}}" data-path="{{item.path}}" data-record-id="{{item.id}}"  bindtap="previewImage"></image>
+      <view class="icon icon-remove icon-remove-image" data-index="{{idx}}" data-record-id="{{item.id}}" bindtap="removeImage" ></view>
+    </view>
+    <view wx:if="{{imageList.length<8}}" class="pic-wrap" bindtap='selectPic'>  </view>
+
+  </view>
+  
+ </view>
+  <view class="section-title">
+    <text>有利因素</text>
+  </view>
+  <view class="section-group">
+    <button type="default" size="{{defaultSize}}" loading="{{loading}}" 
+    plain="{{plain}}"bindtap="addsubway" type="primary" 
+    hover-class="other-button-hover"> 添加1条地铁 
+    </button>
+
+    <view class="section" wx:for="{{subway}}" wx:key="idx" wx:for-index="idx" wx:for-item="item">
+      <label for="subway">地铁</label>
+      <picker style="flex:1;" id="subway" data-index="{{idx}}" mode="multiSelector" range-key="name" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange"  range="{{subwayArray}}">
+      <view class="{{item.length>0?'':'placeholder'}}">{{item.length>0?subwayArray[0][item[0]].name+', 距离'+subwayArray[1][item[1]].name:'请选择地铁'}}</view>
+
+      </picker>
+      <view class="icon icon-remove" data-index="{{idx}}" data-record-id="{{item[2]}}" bindtap="removeSubway"></view>
+    </view>
+    <view class="section">
+      <label>幼儿园</label>
+      <input data-index="nursery"  value="{{hasNursery?nursery:'无'}}" bindblur='toggle' bindconfirm='toggle' confirm-type='done'  disabled="{{!hasNursery}}" placeholder='可添加备注'  />
+      <switch data-index="hasNursery" checked="{{hasNursery}}" bindchange="toggle"/>
+    </view>
+    <view class="section ">
+      <label>小学</label>
+      <input data-index="primarySchool"  value="{{hasPrimarySchool?primarySchool:'无'}}" disabled="{{!hasPrimarySchool}}" placeholder='可添加备注' bindblur='toggle' bindconfirm='toggle' confirm-type='done' />
+      <switch data-index="hasPrimarySchool" checked="{{hasPrimarySchool}}" bindchange="toggle"/>
+    </view>
+
+    <view class="section">
+      <label>中学</label>
+      <input data-index="juniorSchool" value="{{hasJuniorSchool?juniorSchool:'无'}}" disabled="{{!hasJuniorSchool}}" placeholder='可添加备注' bindblur='toggle' bindconfirm='toggle' confirm-type='done' />
+      <switch data-index="hasJuniorSchool" checked="{{hasJuniorSchool}}" bindchange="toggle"/>
+    </view>
+
+    <view class="section">
+      <label>商场</label>
+      <input data-index="mall" disabled="{{!hasMall}}" value="{{hasMall?mall:'无'}}" placeholder='可添加备注'  bindblur='toggle' bindconfirm='toggle' confirm-type='done'/>
+      <switch data-index="hasMall" checked="{{hasMall}}" bindchange="toggle"></switch>
+    </view>
+  </view>
+  <view class="section-title">
+    <text>不利因素</text>
+  </view>
+  
+  <view class='section-group'>
+  
+    <view class="section">
+      <label>高架</label>
+      <input data-index="viaduct" value="{{hasViaduct?viaduct:'无'}}" disabled="{{!hasViaduct}}" placeholder='可添加备注' bindblur='toggle' bindconfirm='toggle' confirm-type='done'/>
+      <switch  data-index="hasViaduct" checked="{{hasViaduct}}" bindchange="toggle"></switch>
+    </view>
+    <view class="section">
+      <label>火车</label>
+      <input data-index="train" disabled='{{!hasTrain}}' value="{{hasTrain?train:'无'}}" placeholder='可添加备注' bindblur='toggle' bindconfirm='toggle' confirm-type='done'/>
+      <switch data-index="hasTrain" checked="{{hasTrain}}" bindchange="toggle"></switch>
+    </view>
+    <view class="section">
+      <label>工厂</label>
+      <input data-index="factory"  value="{{hasFactory?factory:'无'}}" disabled='{{!hasFactory}}' placeholder='可添加备注' bindblur='toggle' bindconfirm='toggle' confirm-type='done'/>
+      <switch data-index="hasFactory" checked="{{hasFactory}}" bindchange="toggle"></switch>
+    </view>
+    <view class="section">
+      <label>坟景</label>
+      <input data-index="grave"  value="{{hasGrave?grave:'无'}}" disabled='{{!hasGrave}}' placeholder='可添加备注' bindblur='toggle' bindconfirm='toggle' confirm-type='done'/>
+      <switch data-index="hasGrave" checked="{{hasGrave}}" bindchange="toggle"></switch>
+    </view>
+    <view class="section">
+      <label>主干道</label>
+      <input data-index="mainRoad" value="{{hasMainRoad?mainRoad:'无'}}" disabled='{{!hasMainRoad}}' placeholder='可添加备注' bindblur='toggle' bindconfirm='toggle' confirm-type='done'/>
+      <switch data-index="hasMainRoad" checked="{{hasMainRoad}}" bindchange="toggle"></switch>
+    </view>
+  </view>
+  <view class='section-group'>
+    <view class="section">
+      <button open-type="share">分享记录</button>
+    </view>
+    <view class="section">
+      <button class="contact-wrap"  open-type="contact"><view class="contact-btn"></view></button>
+    </view>
+  </view>
+</form>
+</scroll-view>

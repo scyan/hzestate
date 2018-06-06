@@ -1,0 +1,17 @@
+<radio-group  class="checkbox-group"  bindchange="checkboxChange">
+  <label wx:key="{{item.value}}" wx:for="{{items}}">
+    <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+  </label>
+  <view class="icon-up"  wx:if="{{showSearch}}" bindtap='hideSearch'></view>
+  <view class="icon-search" wx:else bindtap="showSearch"></view>
+</radio-group>
+ 
+<view class="search-input-wrap" style="height:{{showSearch?'50px':0}}">
+
+  <input class="search-input" style="display:{{showSearch?'block':'none'}}"  bindconfirm="search" placeholder="搜索楼盘" confirm-type="search"/>
+</view>
+
+<map style="height:{{mapHeight}};" bindcallouttap="callouttap" class="map" markers="{{markers}}" circles="{{circles}}"  controls="{{controls}}"bindcontroltap="controltap" latitude="{{latitude}}" longitude="{{longitude}}" scale="{{scale}}" id="myMap" show-location="true" />
+ 
+
+

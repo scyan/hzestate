@@ -1,0 +1,49 @@
+.icon-up{
+  width: 24px;
+  height: 24px;
+  background-size: contain;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAAh1BMVEUAAAC/v7+/v7/BwcHGxsa/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7/CwsK+vr6/v7+/v7+9vb2+vr6/v7++vr6/v7+/v7+/v7++vr7AwMC/v7+/v7+/v7+/v7+/v7+/v7/BwcHBwcG+vr6/v7++vr6+vr6/v7++vr6+vr7AwMC/v7+/v7+l9w79AAAALHRSTlMA9ewSDvrhH9zSrueUJwfMtzsX8aachHttWiwj145oYkQ1MRtcwaJzVk9Ju+AVKhcAAAGNSURBVFjD7ZXZkoIwEEXRKFFRQFxwF/dl8v/fN9zWriJTmgR4miruA3Y3OZeQtMFr1KjRP1GW1ePHrda4Hq9UHYdDzucOh6r8ETwcjhWfP8lh388vk0oOK/CBlAEcVhX4dg621563pmBUlh8xpoXuosfyxFctmkwpPqDF17YzkO68JH6sN5TynR1O2LpuVixlXTicyvBPvfgkh8SFT4h//C0/4NBLHPge+Ps7C+M4fId3chA2XoBXZ05jpWKOz7izERZ+g1F7TgfIBpwtkPWFke9jzKLAaw43cuh85zvE3zRec0iRRZ3vBlF+f87ZVCGb4zrl2hYG5ikMizyyIX5nXB3iFQwSKUcz4rSIlArPSfTc6yu+vubCcuen2ttsy/BbXnvej5IOtPJxsRLTjjjBvNs/YbEUXlBLHWDu2Avz7BBRjzrzUfixydTOzu+43z/3+c6J3wjTP9WovaJTw3RWLE38kvjEfFoZHKSynN7Sx4iTYQa274dsYwYG7YOR7Zt5Ng/A/lkGNGrU6JN+ATijPAxz8A0FAAAAAElFTkSuQmCC');
+}
+.icon-search{
+  width: 24px;
+  height: 24px;
+  background-size: contain;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAANlBMVEUAAAC/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v7++vr6/v7+/v7+/v78saL8TAAAAEXRSTlMAYBCggNBA8MCQMCDfcOBQsErRrCAAAAGwSURBVFjD7ZfbcsMgDEQBy9zB2f//2Zq6MxlzGUGdp073MWIPUgREER355GzEqWidDGJR3hncFJ1fsMuIjqyetOvLnp38cfjD7RdiphL1+nYn360p8cXHYpc9MhWEVUz1OOUGwVCS2xXnz3ocTwxBsjt4U1Zw0d8SVLxiPGHrhxzvLzoAHL2APgNTx5UA09toB2js4lceQJ49690ULCDFpGwnBV8lwKUQOy1wYlp724hYWjCt1GwXuAqa5bFBbmJBGVD1V5BWABug68boFQDVjYxVSpxkDQAgVqQ/ALBPAdtnS8hAWAGkE/C0jfLRQbKAr/v6WgEAaG6HWfB7wDI3vBFT8eJ1NG3TAhYaKYG9vaALKcSriW0KfvoQ5P4bsU/5gwH04HOafJLtcDo4pl4zE8Yhz1+j8U+Y2nmCrGeoliCZ/KspoiXADePhDHMEe8aj7sfIFDw3idFgLFbfA7Q5+FlO54KI5G/jx2bewzJHEGRQZCyRPkXOoug9gkow749KGY2svDdz4/5x7Dd3KsnXBEZKJyL7IpJX6hyBV0tQjwnin/A3CNtHCO4xQTwSGfoCtV4gpeW+DZEAAAAASUVORK5CYII=');
+}
+.search-input-wrap{
+
+  width: 750rpx;
+  box-sizing: border-box;
+  display: block;
+  height: 0;
+  overflow: hidden;
+  background: #fff;
+  padding:0 20rpx;
+  /* transition:all .3s ease-out; */
+}
+.search-input{
+  height: 40px;
+  padding-left: 10rpx;
+  border: solid #ccc 1px;
+  border-radius: 10px;
+}
+.map { 
+   
+    width:750rpx;  
+}
+.checkbox-group {
+  display:flex;
+  background: #fff;
+  width:750rpx; 
+  justify-content:space-around;
+  height:40px;
+}
+.edit-form{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 500px;
+  z-index: 900;
+  width: 750rpx;
+  background: #fff;
+}

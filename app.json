@@ -1,0 +1,17 @@
+{
+  "pages": [
+    
+    "pages/map/index",
+    "pages/form/index",
+    "pages/index/index",
+    "pages/shareCard/index",
+    "pages/logs/logs",
+    "pages/help/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "我的跑盘地图",
+    "navigationBarTextStyle": "black"
+  }
+}

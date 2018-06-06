@@ -1,0 +1,106 @@
+<scroll-view class="scroll-view_H" scroll-x style="width: 100%">
+  <view class="section-group">
+    <view class="section">
+      <label >均价</label>{{price_num}}{{price_unit}}
+    </view>
+    <view class="section">
+      <label >价格</label>{{price}} 元/平方米
+    </view>
+    <view class="section">
+      <view class="picker">
+        预计开盘时间: {{openDate}}
+      </view>
+    </view>
+    <view class="section" wx:if="{{sellerName}}"> 
+      <label >销售姓名</label>
+      {{sellerName}}
+    </view>
+    <view class="section" wx:if="{{sellerMobile}}"> 
+      <label >销售电话</label>
+      {{sellerMobile}}
+      <view class="icon icon-call" bindtap="makeCall"></view>
+    </view>
+  </view>
+  <view class="section-title"  wx:if="{{imageList.length>0}}">
+    <text>户型图</text>
+  </view>
+ <view class="section-group" wx:if="{{imageList.length>0}}">
+  <view class="section image-list" >
+    <view wx:for="{{imageList}}" class="pic-wrap" wx:key="idx" wx:for-index="idx" wx:for-item="item" data-index="{{idx}}" data-record-id="{{item.id}}">
+      <image class="pic" src="{{item.path}}" data-index="{{idx}}" data-path="{{item.path}}" data-record-id="{{item.id}}"  bindtap="previewImage"></image>
+    </view>
+
+  </view>
+  
+ </view>
+  <view class="section-title">
+    <text>有利因素</text>
+  </view>
+  <view class="section-group">
+    <view class="section" wx:for="{{subway}}" wx:key="idx" wx:for-index="idx" wx:for-item="item">
+      <label for="subway">地铁</label>
+      <view class="{{item.length>0?'':'placeholder'}}">{{item.length>0?subwayArray[0][item[0]].name+',距离'+subwayArray[1][item[1]].name:'请选择地铁'}}</view>
+    </view>
+    <view class="section">
+      <label>幼儿园</label>
+      <input data-index="nursery" value="{{hasNursery?nursery:''}}"  disabled="true" />
+      <view class="{{hasNursery?'have haveTag':'haveTag'}}">{{hasNursery?'有':'无'}}</view>
+      
+    </view>
+    <view class="section ">
+      <label>小学</label>
+      <input data-index="primarySchool" value="{{hasPrimarySchool?primarySchool:''}}" disabled  />
+      <view class="{{hasPrimarySchool?'have haveTag':'haveTag'}}">{{hasPrimarySchool?'有':'无'}}</view>
+    </view>
+
+    <view class="section">
+      <label>中学</label>
+      <input data-index="juniorSchool" value="{{hasJuniorSchool?juniorSchool:''}}" disabled />
+       <view class="{{hasJuniorSchool?'have haveTag':'haveTag'}}">{{hasJuniorSchool?'有':'无'}}</view>
+    </view>
+
+    <view class="section">
+      <label>商场</label>
+      <input data-index="mall" disabled value="{{hasMall?mall:''}}" />
+      <view class="{{hasMall?'have haveTag':'haveTag'}}">{{hasMall?'有':'无'}}</view>
+    </view>
+  </view>
+  <view class="section-title">
+    <text>不利因素</text>
+  </view>
+  
+  <view class='section-group'>
+  
+    <view class="section">
+      <label>高架</label>
+      <input data-index="viaduct" value="{{hasViaduct?viaduct:''}}" disabled  />
+      <view class="{{hasViaduct?'have haveTag':'haveTag'}}">{{hasViaduct?'有':'无'}}</view>
+    </view>
+    <view class="section">
+      <label>火车</label>
+      <input data-index="train" value="{{hasTrain?train:''}}" disabled />
+      <view class="{{hasTrain?'have haveTag':'haveTag'}}">{{hasTrain?'有':'无'}}</view>
+    </view>
+    <view class="section">
+      <label>工厂</label>
+      <input data-index="factory" value="{{hasFactory?factory:''}}" disabled />
+      <view class="{{hasFactory?'have haveTag':'haveTag'}}">{{hasFactory?'有':'无'}}</view>
+    </view>
+    <view class="section">
+      <label>坟景</label>
+      <input data-index="grave" value="{{hasGrave?grave:''}}" disabled/>
+      <view class="{{hasGrave?'have haveTag':'haveTag'}}">{{hasGrave?'有':'无'}}</view>
+    </view>
+    <view class="section">
+      <label>主干道</label>
+      <input data-index="mainRoad" value="{{hasMainRoad?mainRoad:''}}" disabled/>
+      <view class="{{hasMainRoad?'have haveTag':'haveTag'}}">{{hasMainRoad?'有':'无'}}</view>
+    </view>
+  </view>
+  <view class='section-group'>
+    <view class="section">
+      <button open-type="share">分享这个记录</button>
+      <button bindtap="backToHome">返回地图</button>
+    </view>
+  </view>
+</scroll-view>

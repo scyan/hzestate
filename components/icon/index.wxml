@@ -1,0 +1,4 @@
+<view class="icon">
+<image wx:if="{{type=='remove'}}" class="icon" mode='aspectFit' src='{{"/resources/remove.png"}}'></image>
+<image wx:elif="{{type=='add'}}" class="icon" mode='aspectFit' src='{{"/resources/add.png"}}'></image>
+</view>
